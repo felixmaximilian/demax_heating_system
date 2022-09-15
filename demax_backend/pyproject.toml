@@ -17,8 +17,10 @@ pytest = "^5.2"
 pytest-mock = "*"
 
 [tool.poetry.group.rpi]
-RPi.GPIO = "0.7.1"
 optional = true
+
+[tool.poetry.group.rpi.dependencies]
+RPi.GPIO = "0.7.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

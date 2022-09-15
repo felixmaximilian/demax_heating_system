@@ -21,7 +21,7 @@ RUN pip install --upgrade pip
 
 RUN pip install "cryptography<3.0"
 
-ENV POETRY_VERSION=1.1.15 \
+ENV POETRY_VERSION=1.2 \
     POETRY_NO_INTERACTION=1 \
     POETRY_CACHE_DIR='/var/cache/pypoetry' \
     PATH="$PATH:/root/.local/bin"
