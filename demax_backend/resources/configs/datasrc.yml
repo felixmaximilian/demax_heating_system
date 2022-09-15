@@ -1,0 +1,12 @@
+apiVersion: 1
+
+datasources:
+  - name: InfluxDB
+    type: influxdb
+    url: http://influxdb:8086
+    secureJsonData:
+      token: "-1nrn2qT2Y-icMB-FxiTgAzFoo1iIDqwijoRSWPRhpCuHOG8GQRZwum8rWFSDZ2ep23l3brnVhJur9ojWZI0cg=="
+    jsonData:
+      version: Flux
+      organization: "demax"
+      defaultBucket: "temperature"

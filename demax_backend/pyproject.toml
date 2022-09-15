@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "demax_backend"
+version = "0.1.0"
+description = ""
+authors = ["maxmoeller <max.moeller@zalando.de>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+flask = "*"
+python-dotenv = "*"
+influxdb-client = "*"
+APScheduler = "^3.9.1"
+fake_rpi = "^0.7.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+pytest-mock = "*"
+
+[tool.poetry.group.rpi]
+RPi.GPIO = "0.7.1"
+optional = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
