@@ -16,12 +16,6 @@ fake_rpi = "^0.7.1"
 pytest = "^5.2"
 pytest-mock = "*"
 
-[tool.poetry.group.rpi]
-optional = true
-
-[tool.poetry.group.rpi.dependencies]
-RPi.GPIO = "0.7.1"
-
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"

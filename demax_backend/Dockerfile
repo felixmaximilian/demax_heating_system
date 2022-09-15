@@ -29,7 +29,8 @@ ENV POETRY_VERSION=1.2 \
 RUN --mount=type=tmpfs,target=/root/.cargo pip3 install poetry==$POETRY_VERSION
 RUN poetry config virtualenvs.create false
 
-RUN poetry install --no-interaction --no-ansi --no-dev --with rpi
-
+RUN poetry install --no-interaction --no-ansi --no-dev
+RUN poetry add RPi.GPIO
+RUN poetry update
 
 CMD ["python", "-m", "main"]
