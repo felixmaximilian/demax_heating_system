@@ -5,7 +5,6 @@ import sys
 import fake_rpi
 from apscheduler.schedulers.blocking import BlockingScheduler
 
-from services.actors.relais import SwitchHolder
 from services import heating_service
 from services.sensors.simulation_service import TemperatureSimulator as temperature_sim
 from configs import TEMPERATURE_SENSOR, SWITCHES
@@ -29,9 +28,6 @@ if __name__ == "__main__":
     #
     # config.sections()
 
-    switch_holder = SwitchHolder(SWITCHES)
-    scheduler = BlockingScheduler()
-
     if args.simulation_mode:
         # create sensor dir and mock it in the sensor service
         temperature_sim.mock_sensor_dir()
@@ -45,6 +41,10 @@ if __name__ == "__main__":
         sys.modules['RPi'] = fake_rpi.RPi  # Fake RPi
         sys.modules['RPi.GPIO'] = fake_rpi.RPi.GPIO  # Fake GPIO
     from services.database_service import update_temperatures, update_switches_data
+    from services.actors.relais import SwitchHolder
+
+    switch_holder = SwitchHolder(SWITCHES)
+    scheduler = BlockingScheduler()
 
     while True:
         sleep(5)

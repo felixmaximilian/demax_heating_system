@@ -2,7 +2,7 @@ FROM arm32v7/python:3.9-bullseye
 
 RUN mkdir /app
 
-COPY demax_backend /app
+COPY src /app
 COPY pyproject.toml /app
 
 WORKDIR /app
@@ -33,4 +33,4 @@ RUN poetry install --no-interaction --no-ansi --no-dev
 RUN poetry add RPi.GPIO
 RUN poetry update
 
-CMD ["python", "-m", "main"]
+CMD ["python", "-m", "main", "--simulation-mode"]

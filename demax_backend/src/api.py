@@ -8,8 +8,8 @@ import fake_rpi
 sys.modules['RPi'] = fake_rpi.RPi  # Fake RPi
 sys.modules['RPi.GPIO'] = fake_rpi.RPi.GPIO  # Fake GPIO
 
-from demax_backend.configs import SWITCHES
-from demax_backend.services.actors.relais import Switch
+from configs import SWITCHES
+from services.actors.relais import Switch
 
 app = Flask(__name__)
 

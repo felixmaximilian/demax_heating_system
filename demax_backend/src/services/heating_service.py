@@ -1,7 +1,7 @@
 from time import sleep
 
-from demax_backend.configs import TEMPERATURE_SENSOR, SW_HYSTERESE, SW_BU_HYSTERESE, PUMPS, SO_DELTA_HYSTERESE
-from demax_backend.services.sensors.temperature_service import DS18B20, Hysterese
+from configs import TEMPERATURE_SENSOR, SW_HYSTERESE, SW_BU_HYSTERESE, PUMPS, SO_DELTA_HYSTERESE
+from services.sensors.temperature_service import DS18B20, Hysterese
 
 
 def handle_heating_desired(switch_holder):

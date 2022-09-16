@@ -6,7 +6,7 @@ from os import path
 from time import sleep
 from threading import Thread
 
-from demax_backend.services.sensors.temperature_service import DS18B20
+from services.sensors.temperature_service import DS18B20
 
 
 class TemperatureSimulator(object):

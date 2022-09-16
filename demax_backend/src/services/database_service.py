@@ -4,8 +4,8 @@ from influxdb_client import InfluxDBClient, Point, WritePrecision
 from influxdb_client.client.write_api import SYNCHRONOUS
 
 # You can generate an API token from the "API Tokens Tab" in the UI
-from demax_backend.services.actors.relais import Switch
-from demax_backend.services.sensors.temperature_service import DS18B20
+from services.actors.relais import Switch
+from services.sensors.temperature_service import DS18B20
 
 token = "AEpR48seLt28NC2-bNfWabPv5ierk-wcR8vWWnJNTFnr_f04LI7VZ6OP7tnLnMGfn3auk9WzElVPb96P40c7vQ=="
 org = "demax"
