@@ -6,7 +6,7 @@ services:
       - /sys:/sys
       - ./src:/app/
   influxdb:
-    image: influxdb:2.3.0
+    image: arm64v8/influxdb:latest
     ports:
       - "8086:8086"
     environment:
