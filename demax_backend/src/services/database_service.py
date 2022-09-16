@@ -7,11 +7,11 @@ from influxdb_client.client.write_api import SYNCHRONOUS
 from services.actors.relais import Switch
 from services.sensors.temperature_service import DS18B20
 
-token = "AEpR48seLt28NC2-bNfWabPv5ierk-wcR8vWWnJNTFnr_f04LI7VZ6OP7tnLnMGfn3auk9WzElVPb96P40c7vQ=="
+token = "4LPx_U2CMbXXv3AI0nxd8J1L28N78cMkfiJJQ1R4lCs23GUH-ST1foExbYLdnMEuwiQS_t0VLebLmnjdnJNv3Q=="
 org = "demax"
 bucket = "temperature"
 
-influx_url = "http://localhost:8086"  # TODO: once using docker, use http://influxdb:8086
+influx_url = "http://influxdb:8086"  # TODO: once using docker, use http://influxdb:8086
 
 # TODO: Use intermediate Temperature object and remove this files dependency to DS18B20 (migrate to temperature_service)
 def update_temperatures(sensor_mapping):
