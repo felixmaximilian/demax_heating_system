@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
+import logging
 
 GPIO.setmode(GPIO.BCM)  # GPIO Nummern statt Board Nummern
-
 
 class Switch:
     def __init__(self, gpio_id, name):
@@ -14,10 +14,12 @@ class Switch:
 
     def set_high(self):
         GPIO.setup(self.gpio_id, GPIO.OUT)
+        logging.log(f'Schalte {self.name} ein...')
         GPIO.output(self.gpio_id, GPIO.HIGH)
 
     def set_low(self):
         GPIO.setup(self.gpio_id, GPIO.OUT)
+        logging.log(f'Schalte {self.name} aus...')
         GPIO.output(self.gpio_id, GPIO.LOW)
 
 

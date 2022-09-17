@@ -1,4 +1,5 @@
 from time import sleep
+import logging
 
 from configs import TEMPERATURE_SENSOR, SW_HYSTERESE, SW_BU_HYSTERESE, PUMPS, SO_DELTA_HYSTERESE
 from services.sensors.temperature_service import DS18B20, Hysterese
@@ -27,14 +28,17 @@ def handle_heating_desired(switch_holder):
     sw_hyst = Hysterese(**SW_HYSTERESE)
     delta_hyst = Hysterese(**SW_BU_HYSTERESE)
     if sw_hyst.is_in_upper_alarm(sw_temperature):
+        logging.log("Brauchwasser warm genug.")
         loading_pump_relais.set_low()
         electrical_heating_relais.set_low()
     elif sw_hyst.is_in_lower_alarm(sw_temperature):
         delta = bu_temperature - sw_temperature
         if delta_hyst.is_in_upper_alarm(delta):
+            logging.log("Heizen durch Pufferspeicher.")
             electrical_heating_relais.set_low()
             loading_pump_relais.set_high()
         elif delta_hyst.is_in_lower_alarm(delta):
+            logging.log("Heizen durch Strom.")
             loading_pump_relais.set_low()
             electrical_heating_relais.set_high()
         # ELSE, we cannot turn on elect heating because of hystese, but Bu does not provide enough heat neither
@@ -49,8 +53,10 @@ def handle_solar_panel(switch_holder):
     true_delta = so_temperature - sw_temperature
     so_delta_hyst = Hysterese(**SO_DELTA_HYSTERESE)
     if so_delta_hyst.is_in_upper_alarm(true_delta):
+        logging.log("Schalte Thermosolarpumpe ein.")
         switch_holder.get("solar_pump").set_high()
     elif so_delta_hyst.is_in_lower_alarm(true_delta):
+        logging.log("Schalte Thermosolarpumpe aus.")
         switch_holder.get("solar_pump").set_low()
 
 
