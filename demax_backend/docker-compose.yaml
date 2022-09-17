@@ -2,6 +2,7 @@ version: "3.3"  # optional since v1.27.0
 services:
   app:
     build: .
+    privileged: true
     volumes:
       - /sys:/sys
       - ./src:/app/
