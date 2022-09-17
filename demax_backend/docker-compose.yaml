@@ -5,6 +5,7 @@ services:
     volumes:
       - /sys:/sys
       - ./src:/app/
+      - /dev/gpiomem:/dev/gpiomem
 #  influxdb:
 #    image: arm32v7/influxdb:2.3.0
 #    ports:
