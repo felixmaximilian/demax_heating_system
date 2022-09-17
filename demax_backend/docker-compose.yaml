@@ -5,29 +5,29 @@ services:
     volumes:
       - /sys:/sys
       - ./src:/app/
-  influxdb:
-    image: arm32v7/influxdb:2.3.0
-    ports:
-      - "8086:8086"
-    environment:
-      - DOCKER_INFLUXDB_INIT_MODE=setup
-      - DOCKER_INFLUXDB_INIT_USERNAME=root
-      - DOCKER_INFLUXDB_INIT_PASSWORD=password
-      - DOCKER_INFLUXDB_INIT_ORG=demax
-      - DOCKER_INFLUXDB_INIT_BUCKET=temperature
-      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=4LPx_U2CMbXXv3AI0nxd8J1L28N78cMkfiJJQ1R4lCs23GUH-ST1foExbYLdnMEuwiQS_t0VLebLmnjdnJNv3Q==
-    volumes:
-      - influxdb2:/var/lib/influxdb2
-  grafana:
-    image: grafana/grafana:8.2.6
-    container_name: grafana
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./resources/configs/datasrc.yml:/etc/grafana/provisioning/datasources/influx-datasrc.yml:ro
-      - ./dashboards:/var/lib/grafana/dashboards
-      - ./resources/configs/dashboard-provider.yml:/etc/grafana/provisioning/dashboards/dashboard-provider.yml:ro
-      - ./resources/configs/grafana.ini:/etc/grafana/grafana.ini:ro
-volumes:
-  influxdb2:
+#  influxdb:
+#    image: arm32v7/influxdb:2.3.0
+#    ports:
+#      - "8086:8086"
+#    environment:
+#      - DOCKER_INFLUXDB_INIT_MODE=setup
+#      - DOCKER_INFLUXDB_INIT_USERNAME=root
+#      - DOCKER_INFLUXDB_INIT_PASSWORD=password
+#      - DOCKER_INFLUXDB_INIT_ORG=demax
+#      - DOCKER_INFLUXDB_INIT_BUCKET=temperature
+#      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=4LPx_U2CMbXXv3AI0nxd8J1L28N78cMkfiJJQ1R4lCs23GUH-ST1foExbYLdnMEuwiQS_t0VLebLmnjdnJNv3Q==
+#    volumes:
+#      - influxdb2:/var/lib/influxdb2
+#  grafana:
+#    image: grafana/grafana:8.2.6
+#    container_name: grafana
+#    ports:
+#      - "3000:3000"
+#    volumes:
+#      - ./resources/configs/datasrc.yml:/etc/grafana/provisioning/datasources/influx-datasrc.yml:ro
+#      - ./dashboards:/var/lib/grafana/dashboards
+#      - ./resources/configs/dashboard-provider.yml:/etc/grafana/provisioning/dashboards/dashboard-provider.yml:ro
+#      - ./resources/configs/grafana.ini:/etc/grafana/grafana.ini:ro
+#volumes:
+#  influxdb2:
 

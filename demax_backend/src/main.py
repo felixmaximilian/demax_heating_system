@@ -53,8 +53,8 @@ if __name__ == "__main__":
 
         # write sensor values, switch states and mode states to db
         # TODO: extract into own thread.
-        update_temperatures(TEMPERATURE_SENSOR)
-        update_switches_data(SWITCHES)
+        # update_temperatures(TEMPERATURE_SENSOR)
+        # update_switches_data(SWITCHES)
 
         heating_service.handle_heating_desired(switch_holder)
         heating_service.handle_solar_panel(switch_holder)
