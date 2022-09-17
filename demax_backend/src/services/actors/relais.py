@@ -9,12 +9,15 @@ class Switch:
         self.name = name
 
     def get_state(self):
+        GPIO.setup(self.gpio_id, GPIO.IN)
         return GPIO.input(self.gpio_id)
 
     def set_high(self):
+        GPIO.setup(self.gpio_id, GPIO.OUT)
         GPIO.output(self.gpio_id, GPIO.HIGH)
 
     def set_low(self):
+        GPIO.setup(self.gpio_id, GPIO.OUT)
         GPIO.output(self.gpio_id, GPIO.LOW)
 
 
