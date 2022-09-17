@@ -1,4 +1,5 @@
 import argparse
+import logging
 import random
 from time import sleep
 import sys
@@ -19,6 +20,8 @@ if __name__ == "__main__":
         help="Simulate sensor values and switches instead of using the ones connected.",
     )
     args = parser.parse_args()
+
+    logging.basicConfig(level=logging.INFO)
 
     # TODO: Parse Temperature IDs from config
     # config = configparser.ConfigParser()
