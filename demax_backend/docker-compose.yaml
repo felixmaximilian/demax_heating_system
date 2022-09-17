@@ -6,6 +6,7 @@ services:
       - /sys:/sys
       - ./src:/app/
       - /dev/gpiomem:/dev/gpiomem
+      - /dev/mem:/dev/mem
 #  influxdb:
 #    image: arm32v7/influxdb:2.3.0
 #    ports:
