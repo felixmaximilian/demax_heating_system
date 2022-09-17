@@ -53,10 +53,10 @@ def handle_solar_panel(switch_holder):
     true_delta = so_temperature - sw_temperature
     so_delta_hyst = Hysterese(**SO_DELTA_HYSTERESE)
     if so_delta_hyst.is_in_upper_alarm(true_delta):
-        logging.log("Schalte Thermosolarpumpe ein.")
+        logging.info("Schalte Thermosolarpumpe ein.")
         switch_holder.get("solar_pump").set_high()
     elif so_delta_hyst.is_in_lower_alarm(true_delta):
-        logging.log("Schalte Thermosolarpumpe aus.")
+        logging.info("Schalte Thermosolarpumpe aus.")
         switch_holder.get("solar_pump").set_low()
 
 
