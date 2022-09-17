@@ -28,17 +28,17 @@ def handle_heating_desired(switch_holder):
     sw_hyst = Hysterese(**SW_HYSTERESE)
     delta_hyst = Hysterese(**SW_BU_HYSTERESE)
     if sw_hyst.is_in_upper_alarm(sw_temperature):
-        logging.log("Brauchwasser warm genug.")
+        logging.info("Brauchwasser warm genug.")
         loading_pump_relais.set_low()
         electrical_heating_relais.set_low()
     elif sw_hyst.is_in_lower_alarm(sw_temperature):
         delta = bu_temperature - sw_temperature
         if delta_hyst.is_in_upper_alarm(delta):
-            logging.log("Heizen durch Pufferspeicher.")
+            logging.info("Heizen durch Pufferspeicher.")
             electrical_heating_relais.set_low()
             loading_pump_relais.set_high()
         elif delta_hyst.is_in_lower_alarm(delta):
-            logging.log("Heizen durch Strom.")
+            logging.info("Heizen durch Strom.")
             loading_pump_relais.set_low()
             electrical_heating_relais.set_high()
         # ELSE, we cannot turn on elect heating because of hystese, but Bu does not provide enough heat neither

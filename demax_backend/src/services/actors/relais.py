@@ -14,12 +14,12 @@ class Switch:
 
     def set_high(self):
         GPIO.setup(self.gpio_id, GPIO.OUT)
-        logging.log(f'Schalte {self.name} ein...')
+        logging.info(f'Schalte {self.name} ein...')
         GPIO.output(self.gpio_id, GPIO.HIGH)
 
     def set_low(self):
         GPIO.setup(self.gpio_id, GPIO.OUT)
-        logging.log(f'Schalte {self.name} aus...')
+        logging.info(f'Schalte {self.name} aus...')
         GPIO.output(self.gpio_id, GPIO.LOW)
 
 
